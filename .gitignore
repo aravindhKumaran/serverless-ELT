@@ -1,2 +1,11 @@
 data/
 p39-venv/
+dependencies/
+dependencies_layer1/
+dependencies_layer2/
+ghactivity.zip
+ghactivity_layer1.zip
+requirements_layer1.txt
+requirements_layer2.txt
+app.zip
+docker_commands.sh
