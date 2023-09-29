@@ -13,6 +13,9 @@ def get_job_details(job_name):
     return job_details_table
 
 
+def get_job_start_time():
+    return int(time.mktime(dt.now().timetuple()))
+
 def get_next_file(job_details):
     job_start_time = int(time.mktime(dt.now().timetuple()))
     job_run_bookmark_details = job_details.get('job_run_bookmark_details')
