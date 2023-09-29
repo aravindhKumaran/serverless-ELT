@@ -8,6 +8,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 sudo apt update -yqq 
 
+sudo apt install docker.io -yqq
+
+sudo chmod +x /var/run/docker.sock
+
 sudo apt install -y python3.9 -yqq 
 
 sudo apt-get install python3.9-venv -yqq 
