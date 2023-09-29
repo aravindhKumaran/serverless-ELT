@@ -6,6 +6,7 @@ This repository contains the source code and documentation for a serverless ELT 
 
 ## Architecture
 
+
 <img src="serverless-ETL-architecture.png" alt="Architecture-Diagram" width="800" />
 
 ## Project Workflow
@@ -46,6 +47,8 @@ This repository contains the source code and documentation for a serverless ELT 
 
 ## Project Structure
 
+- **`/infra` Folder:**
+  - Contains shell script to initialize the setup for this project.
 
 - **`/app` Folder:**
   - Contains Lambda function code for data ingestion and transformation.
@@ -59,22 +62,31 @@ This repository contains the source code and documentation for a serverless ELT 
    - Create an IAM role for Lambda with appropriate permissions.
 
 2. **Baseline Day Configuration:**
-   - Update the baseline day in Lambda function code or configuration.
+   - Update the baseline day in DynamoDB `jobs` table.
 
 3. **AWS Setup:**
    - Configure AWS credentials and permissions for Lambda, DynamoDB, S3, ECR, Glue, Athena, and CloudWatch Logs.
+  
+4. **Local Development Setup:**
+   - To set up and run this project, follow these steps
+     
+   ```bash
+   git clone https://github.com/aravindhKumaran/serverless-ELT.git
+   cd serverless-ELT/infra
+   ./init.sh
+   ```
 
-4. **Lambda Deployment:**
+6. **Lambda Deployment:**
    - Execute the `docker_build.sh` script to build, tag, and push Docker images to ECR.
    - Update Lambda functions in the `/app` folder to use the latest Docker image.
 
-5. **Scheduled Execution:**
+7. **Scheduled Execution:**
    - Set up EventBridge rules to trigger Lambda functions at the desired schedule.
 
-6. **Data Analysis:**
+8. **Data Analysis:**
    - Use Athena to run ad hoc queries on processed data cataloged by Glue.
 
-7. **Monitoring:**
+9. **Monitoring:**
    - Leverage CloudWatch Logs for testing data ingestion, transformation, and monitoring.
 
 ## Dependencies
@@ -95,7 +107,7 @@ This repository contains the source code and documentation for a serverless ELT 
 - Regularly update Docker image and Lambda functions as needed.
 - CloudWatch Logs can be useful for monitoring and testing data flow through the pipeline.
 
-This repository provides an overview of the project architecture, workflow, and setup instructions. Refer to specific code files for detailed implementations.
+This readme.md provides an overview of the project architecture, workflow, and setup instructions. Refer to specific code files for detailed implementations.
 
 
 
